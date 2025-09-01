@@ -1,6 +1,6 @@
 <?php
 //This is the user's class, making methods 
-namespace app\Model;
+namespace App\Model;
 
 class User {
   public function __construct(
