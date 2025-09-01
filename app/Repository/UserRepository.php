@@ -9,11 +9,11 @@ class UserRepository {
   private PDO $db;
   
   public function __construct() {
-    $this->db = Database::connect;
+    $this->db = Database::connect();
   }
 
   public function findByEmail(string $email): ?User{
-    $stmt = $this->db->preapare("SELECT * from users where email= :email"); //Monta os objetos | Evita injeção SQL
+    $stmt = $this->db->prepare("SELECT * from users where email= :email"); //Monta os objetos | Evita injeção SQL
     $stmt->execute(['email' => $email]);
     
     $data = $stmt->fetch();
@@ -21,6 +21,6 @@ class UserRepository {
       return null;
     }
 
-    return new User($data['id'], $data['email'], $data['password']);
+    return new User($data['id_user'], $data['email'], $data['password']);
   }
 }
