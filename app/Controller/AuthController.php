@@ -6,7 +6,7 @@ use App\Service\AuthService;
 class AuthController{
   private AuthService $service;
   
-  public function _construct() {
+  public function __construct() {
     $this->service = new AuthService();
   }
 
